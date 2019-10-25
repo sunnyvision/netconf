@@ -1,5 +1,5 @@
 {
-    "name": "lamoni/netconf",
+    "name": "sunnyvision/netconf",
     "description": "A vendor-agnostic PHP NETCONF implementation",
     "license": "MIT",
     "version": "1.0.1",
