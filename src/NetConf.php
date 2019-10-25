@@ -3,7 +3,7 @@
 use Lamoni\NetConf\NetConfAuth\NetConfAuthAbstract;
 use Lamoni\NetConf\NetConfMessage\NetConfMessageRecv\NetConfMessageRecvHello;
 use Lamoni\NetConf\NetConfMessage\NetConfMessageRecv\NetConfMessageRecvRPC;
-use Net_SSH2;
+use phpseclib\Net\SSH2;
 use SimpleXMLElement;
 
 /**
@@ -17,7 +17,7 @@ class NetConf
     /**
      * SSH2 interface
      *
-     * @var Net_SSH2
+     * @var SSH2
      */
     protected $ssh;
 
@@ -119,7 +119,7 @@ class NetConf
          *   doesn't support custom subsystems (which we need for NETCONF)
          */
 
-        $this->ssh = new Net_SSH2($hostname, $port);
+        $this->ssh = new SSH2($hostname, $port);
 
         $this->ssh->setWindowSize(-1, -1);
 

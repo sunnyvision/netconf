@@ -1,6 +1,6 @@
 <?php namespace Lamoni\NetConf\NetConfAuth;
 
-use Net_SSH2;
+use phpseclib\Net\SSH2;
 
 /**
  * Class NetConfAuthPassword
@@ -11,10 +11,10 @@ class NetConfAuthPassword extends NetConfAuthAbstract
     /**
      *Performs the authentication check for this auth type
      *
-     * @param Net_SSH2 $ssh
+     * @param SSH2 $ssh
      * @throws \Exception
      */
-    public function login(Net_SSH2 &$ssh)
+    public function login(SSH2 &$ssh)
     {
         $this->validateAuthParams(
             $this->authParams,
