@@ -361,6 +361,7 @@ class NetConf
 
         $editConfig = new SimpleXMLElement(
             "<edit-config>".
+                "<target><{$datastore}/></target>".
                 "<config>{$configString}</config>".
             "</edit-config>"
         );
