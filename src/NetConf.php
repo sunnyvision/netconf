@@ -206,7 +206,7 @@ class NetConf
         return new NetConfMessageRecvRPC(
             $this->sendRaw(
                 $rpc, "rpc", "</rpc-reply>",
-                ["message-id"=>$this->messageID]
+                ["message-id"=>uniqid('rpc-').  $this->messageID]
             )
         );
 

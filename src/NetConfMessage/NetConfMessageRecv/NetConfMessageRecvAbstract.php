@@ -39,6 +39,24 @@ abstract class NetConfMessageRecvAbstract
     }
 
     /**
+     * Returns a FluidXML instance
+     *   
+     * @return \FluidXml\FluidXml
+     */
+    public function getFluidResponse() {
+        return new \FluidXml\FluidXml($this->response);
+    }
+
+    /**
+     * Returns JSON decoded response parsed from XML
+     * 
+     * @return array
+     */
+    public function getArrayResponse() {
+        return json_decode(json_encode($this->response), true);
+    }
+
+    /**
      * Returns $response
      *
      * @return SimpleXMLElement
