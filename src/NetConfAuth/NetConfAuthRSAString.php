@@ -4,10 +4,10 @@ use phpseclib\Net\SSH2;
 use phpseclib\Crypt\RSA;
 
 /**
- * Class NetConfAuthRSAFile
+ * Class NetConfAuthRSAString
  * @package Lamoni\NetConf\NetConfAuth
  */
-class NetConfAuthRSAFile extends NetConfAuthAbstract
+class NetConfAuthRSAString extends NetConfAuthAbstract
 {
     /**
      *Performs the authentication check for this auth type
@@ -21,7 +21,7 @@ class NetConfAuthRSAFile extends NetConfAuthAbstract
             $this->authParams,
             $acceptableParams = [
                 'username' => 'is_string',
-                'rsafile' => 'file_exists'
+                'rsastring' => 'is_string'
             ]
         );
 
@@ -29,7 +29,7 @@ class NetConfAuthRSAFile extends NetConfAuthAbstract
 
         $rsakey = new RSA();
 
-        $rsakey->loadKey(file_get_contents($rsafile));
+        $rsakey->loadKey($rsastring);
 
         if (!$ssh->login($username, $rsakey)) {
             throw new \Exception(get_class().': Authentication failed');
